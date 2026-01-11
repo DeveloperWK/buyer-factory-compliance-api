@@ -4,7 +4,6 @@ import generateAccessToken from "../services/jwt.service";
 export const login = async (req: Request, res: Response) => {
 	try {
 		const { userId, role, factoryId } = req.body;
-		console.log(req.body);
 		if (!userId && !role) {
 			res.status(500).json({
 				error: "login with all required field",

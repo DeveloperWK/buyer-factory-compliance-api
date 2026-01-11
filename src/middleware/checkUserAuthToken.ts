@@ -21,11 +21,8 @@ export const checkUserAuthToken = async (
 	const accessToken = req.cookies.token;
 	try {
 		const decodedToken = jwt.verify(accessToken, SECRET!) as JwtPayload;
-		console.log(decodedToken);
 		if (!decodedToken) {
-			return res
-				.status(401)
-				.json({ message: "Unauthorized Token not valid" });
+			return res.status(401).json({ message: "Unauthorized Token not valid" });
 		}
 		req.user = {
 			userId: decodedToken.userId,

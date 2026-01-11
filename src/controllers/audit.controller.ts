@@ -1,8 +1,7 @@
 import type { Request, Response } from "express";
 import { readAllAuditLogsToDb } from "../services/audit.service";
-import generateAccessToken from "../services/jwt.service";
 
-export const getAllAudit = async (req: Request, res: Response) => {
+export const getAllAudit = async (_req: Request, res: Response) => {
 	try {
 		const audit = readAllAuditLogsToDb();
 

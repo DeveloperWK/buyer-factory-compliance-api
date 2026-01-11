@@ -1,7 +1,7 @@
 import type { Request, Response } from "express";
-import generateAccessToken from "../services/jwt.service";
+
 import db from "../DB/config";
-import { AuditEntry, writeAuditLogsToDb } from "../services/audit.service";
+import { type AuditEntry, writeAuditLogsToDb } from "../services/audit.service";
 
 export const createEvidence = async (req: Request, res: Response) => {
 	try {

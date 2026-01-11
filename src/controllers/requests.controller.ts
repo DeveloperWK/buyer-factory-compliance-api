@@ -1,5 +1,5 @@
-import type { Request, Response } from "express";
 import { randomUUID } from "node:crypto";
+import type { Request, Response } from "express";
 import db from "../DB/config";
 import { type AuditEntry, writeAuditLogsToDb } from "../services/audit.service";
 

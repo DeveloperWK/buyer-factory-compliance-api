@@ -1,13 +1,13 @@
 import cookieParser from "cookie-parser";
 import express, { type Application } from "express";
 import morgan from "morgan";
+import { getAllRequests } from "./controllers/requests.controller";
 import { checkUserAuthToken } from "./middleware/checkUserAuthToken";
+import { checkRequireFactory } from "./middleware/requireFactoryMiddleware";
 import auditRoutes from "./routes/audit.routes";
 import authRoutes from "./routes/auth.routes";
 import evidenceRoutes from "./routes/evidence.routes";
 import requestRoutes from "./routes/requests.routes";
-import { checkRequireFactory } from "./middleware/requireFactoryMiddleware";
-import { getAllRequests } from "./controllers/requests.controller";
 
 const app: Application = express();
 
