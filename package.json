@@ -4,10 +4,13 @@
 	"description": "",
 	"main": "dist/app.js",
 	"scripts": {
-		"start": "NODE_ENV=production node dist/server.js",
-		"dev": "nodemon --watch 'src/**/*.ts' --exec 'ts-node' src/app.ts"
+		"start": "NODE_ENV=production node dist/app.js",
+		"dev": "nodemon --watch 'src/**/*.ts' --exec 'ts-node' src/app.ts",
+		"build": "tsc"
 	},
 	"devDependencies": {
+		"@types/better-sqlite3": "^7.6.13",
+		"@types/cookie-parser": "^1.4.10",
 		"@types/express": "^5.0.6",
 		"@types/jsonwebtoken": "^9.0.10",
 		"@types/morgan": "^1.9.10",
@@ -17,13 +20,13 @@
 		"typescript": "^5.9.3"
 	},
 	"dependencies": {
+		"better-sqlite3": "^12.6.0",
+		"cookie-parser": "^1.4.7",
 		"express": "^5.2.1",
-		"express-validator": "^7.3.1",
 		"jsonwebtoken": "^9.0.3",
 		"morgan": "^1.10.1"
 	},
 	"keywords": [],
 	"author": "",
-	"license": "ISC",
-	"packageManager": "pnpm@10.26.1"
+	"license": "ISC"
 }
