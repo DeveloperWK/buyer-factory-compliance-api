@@ -20,7 +20,7 @@ app.use("/api/v1/audit", checkUserAuthToken, auditRoutes);
 app.use(
 	"/api/v1/evidence",
 	checkUserAuthToken,
-	checkRequireFactory,
+	// checkRequireFactory,
 	evidenceRoutes,
 );
 app.use("/api/v1/requests", checkUserAuthToken, requestRoutes);
