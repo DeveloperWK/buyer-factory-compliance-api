@@ -88,3 +88,30 @@ export const createEvidenceVersion = async (req: Request, res: Response) => {
 		});
 	}
 };
+export const getEvidence = async (req: Request, res: Response) => {
+	try {
+		const { requestId } = req.params;
+
+		const stmt = db.prepare(`
+SELECT
+    ri.id AS item_id,
+    ri.doc_type,
+    ri.status AS item_status,
+    json_extract(ri.fulfilled_evidence_version_id, '$.evidenceId') AS evidence_id,
+    json_extract(ri.fulfilled_evidence_version_id, '$.versionId') AS version_id
+FROM request_items ri
+JOIN requests r ON ri.request_id = r.id
+WHERE r.id = ?
+  AND r.buyer_id = ?
+  AND ri.fulfilled_evidence_version_id IS NOT NULL
+`);
+
+		const items = stmt.all(requestId, req.user.userId);
+		res.status(200).json({ requestId, items });
+	} catch (err) {
+		console.error(err);
+		res.status(500).json({
+			error: err,
+		});
+	}
+};
