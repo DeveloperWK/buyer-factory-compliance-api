@@ -7,7 +7,7 @@ export const checkRequireFactory = async (
 ) => {
 	try {
 		const user = req.user;
-		if (user.factoryId) {
+		if (user.factoryId && user.role === "factory") {
 			next();
 		} else {
 			return res
