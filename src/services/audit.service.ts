@@ -1,6 +1,6 @@
 import db from "../DB/config";
 
-interface AuditEntry {
+export interface AuditEntry {
 	actorUserId: string;
 	actorRole: string;
 	action: string;
