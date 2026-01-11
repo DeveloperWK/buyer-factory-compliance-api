@@ -1,5 +1,6 @@
 import express, { type Application } from "express";
 import morgan from "morgan";
+import connectDB from "./DB/config";
 
 const app: Application = express();
 
