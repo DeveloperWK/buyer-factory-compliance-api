@@ -8,6 +8,8 @@ import morgan from "morgan";
 import { checkUserAuthToken } from "./middleware/checkUserAuthToken";
 import auditRoutes from "./routes/audit.routes";
 import authRoutes from "./routes/auth.routes";
+import evidenceRoutes from "./routes/evidence.routes";
+import { checkRequireFactory } from "./middleware/requireFactoryMiddleware";
 
 const app: Application = express();
 
@@ -17,6 +19,12 @@ app.use(cookieParser());
 app.use(morgan("dev"));
 app.use("/api/v1/auth", authRoutes);
 app.use("/api/v1/audit", checkUserAuthToken, auditRoutes);
+app.use(
+	"/api/v1/evidence",
+	checkUserAuthToken,
+	checkRequireFactory,
+	evidenceRoutes,
+);
 app.get("/health", checkUserAuthToken, (_req: Request, res: Response) => {
 	res.send("hello");
 });

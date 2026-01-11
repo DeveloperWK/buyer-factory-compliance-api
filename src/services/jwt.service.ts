@@ -1,7 +1,7 @@
 import jwt from "jsonwebtoken";
 
 const JWT_SECRET = process.env._JWT_SECRET ?? "mockJwtSecret";
-const JWT_EXPIRY = "15m";
+const JWT_EXPIRY = "7D";
 
 const generateAccessToken = (payload: {
 	userId: string;
