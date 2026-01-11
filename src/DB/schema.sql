@@ -25,7 +25,7 @@ CREATE TABLE IF NOT EXISTS evidence (
   doc_type TEXT NOT NULL,
   created_at DATETIME DEFAULT CURRENT_TIMESTAMP
 );
-CREATE TABLEIF NOT EXISTS  evidence_versions (
+CREATE TABLE IF NOT EXISTS  evidence_versions (
   id TEXT PRIMARY KEY,
   evidence_id TEXT NOT NULL,
   version_number INTEGER NOT NULL,
